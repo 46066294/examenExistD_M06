@@ -1,6 +1,7 @@
 import net.xqj.exist.ExistXQDataSource;
 
 import javax.xml.xquery.*;
+import java.util.Scanner;
 
 //    /home/46066294p/eXist-db/webapp/WEB-INF/data/fs/db/mondial
 //     172.31.83.21
@@ -16,10 +17,93 @@ public class Principal {
     static XQResultSequence xqResult;
 
     public static void main(String[]args) throws XQException {
+        Scanner input = new Scanner(System.in);
 
         xqs.setProperty("serverName","172.31.101.225");
         xqs.setProperty("port","8080");
         xconn = xqs.getConnection();
+        System.out.println("\n...sessió oberta correctament");
+
+
+        try {
+
+            String menu = "";
+            boolean on = true;//condicio de sortida del programa
+
+
+            while (on) {
+                System.out.println("\n");
+                System.out.println("MENU:");
+                System.out.println(" 1--> Quins països hi ha en el fitxer «factbook.xml»?");
+                System.out.println(" 2--> Quants països hi ha?");
+                System.out.println(" 3--> Quina és la informació sobre Alemanya ?");
+                System.out.println(" 4--> Quanta gent viu a Uganda segons aquest fitxer?");
+                System.out.println(" 5--> Quines són les ciutats de Perú que recull aquest fitxer?");
+                System.out.println(" 6--> Quanta gent viu a Shanghai?");
+                System.out.println(" 7--> Quin és el codi de matricula de cotxe de Xipre?");
+                System.out.println(" 0--> Salir del programa");
+                System.out.println(" ");
+                menu = input.nextLine();
+
+                switch (menu) {
+                    case "0": {
+                        System.out.println("\n...salir");
+                        on = false;
+                        break;
+                    }
+
+                    case "1": {
+                        paisosFactbook(sessio);
+                        break;
+                    }
+
+                    case "2": {
+                        quantsPaisosMondial(sessio);
+                        break;
+                    }
+
+                    case "3": {
+                        infoAlemanya(sessio);
+                        break;
+                    }
+
+                    case "4": {
+                        populationUganda(sessio);
+                        break;
+                    }
+
+                    case "5": {
+                        peruCities(sessio);
+                        break;
+                    }
+
+                    case "6": {
+                        populationShanghai(sessio);
+                        break;
+                    }
+
+                    case "7": {
+                        codiXipre(sessio);
+                        break;
+                    }
+
+                    default: {
+                        System.out.println("\n...entrada de menu incorrecta\n");
+                        break;
+                    }
+
+                }//switch
+
+            }
+        } catch(Exception e){
+            e.getStackTrace();
+        }
+        finally {
+            input.close();
+            System.out.println("...sessió tancada");
+        }
+
+
 
 
 
@@ -69,7 +153,7 @@ public class Principal {
         mostrarQuery (query2);
 
         xconn.close();
-    }
+    }//main
 
     public static void mostrarQuery(String q) throws XQException {
         xqpe = xconn.prepareExpression(q);

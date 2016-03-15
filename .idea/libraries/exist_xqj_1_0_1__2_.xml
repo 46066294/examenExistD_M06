@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="exist-xqj-1.0.1 (2)">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/exist-xqj-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xqj2-0.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/xqjapi.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/exist-xqj-api-1.0.1.zip!/doc/javadoc" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

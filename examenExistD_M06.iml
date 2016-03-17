@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="exist-xqj-1.0.1" level="project" />
     <orderEntry type="library" name="exist-xqj-1.0.1 (2)" level="project" />
+    <orderEntry type="library" name="commons-io-2.4" level="project" />
   </component>
 </module>

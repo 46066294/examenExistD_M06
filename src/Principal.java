@@ -19,7 +19,7 @@ public class Principal {
     public static void main(String[]args) throws XQException {
         Scanner input = new Scanner(System.in);
 
-        xqs.setProperty("serverName","172.31.101.225");
+        xqs.setProperty("serverName","localhost");//172.31.101.225
         xqs.setProperty("port","8080");
         xconn = xqs.getConnection();
         System.out.println("\n...sessió oberta correctament");
@@ -53,37 +53,40 @@ public class Principal {
                     }
 
                     case "1": {
-                        paisosFactbook(sessio);
+
+                        String query = "collection('mondial.xml')/count(/mondial/country)";
+
+                        mostrarQuery (query);
                         break;
                     }
 
                     case "2": {
-                        quantsPaisosMondial(sessio);
+
                         break;
                     }
 
                     case "3": {
-                        infoAlemanya(sessio);
+
                         break;
                     }
 
                     case "4": {
-                        populationUganda(sessio);
+
                         break;
                     }
 
                     case "5": {
-                        peruCities(sessio);
+
                         break;
                     }
 
                     case "6": {
-                        populationShanghai(sessio);
+
                         break;
                     }
 
                     case "7": {
-                        codiXipre(sessio);
+
                         break;
                     }
 

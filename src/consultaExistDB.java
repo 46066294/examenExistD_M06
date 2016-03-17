@@ -1,5 +1,5 @@
 /**
- * Created by 47419119l on 17/03/16.
+ * Created by 46066294p on 17/03/16.
  */
 import net.xqj.exist.ExistXQDataSource;
 import javax.xml.xquery.*;
@@ -10,17 +10,23 @@ public class consultaExistDB {
        // String xquery100 = "(collection('47419119l')/mondial/country[name='China']/population[@year='2013'])div(count(collection('xmls')/mondial/country[name='China']/province))";
 
         //String xpath = "collection('plantes.xml')/CATALOG/PLANT/COMMON";
-        String xpath = "/CATALOG/PLANT/COMMON";
+        String xpath = "collection('marc')/CATALOG/PLANT/COMMON";
         //String xpath = "/CATALOG/PLANT";
-        String query = consulta(xpath);
+        //String xpath = "/CATALOG/PLANT[position() <=2]";
+        //String xpath = "/CATALOG/PLANT";
+
+        String resposta = consulta(xpath);
         //System.out.println(query);
 
-        String [] name = query.replaceAll("</COMMON>","").split("<COMMON>");
+        String [] name = resposta.replaceAll("</COMMON>","").split("<COMMON>");
 
         System.out.println("Hi han "+(name.length -1) +" plantes");
         for (int i = 0; i < name.length; i++) {
             System.out.println(name[i]);
         }
+
+
+        //System.out.println(resposta);
 
     }
 
@@ -42,7 +48,9 @@ public class consultaExistDB {
             resultado += linea;
         }
         conn.close();
-        System.out.println(resultado);
+
+        //System.out.println(resultado);
+
         return resultado;
     }
 }

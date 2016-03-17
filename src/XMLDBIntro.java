@@ -8,7 +8,7 @@ import org.xmldb.api.modules.CollectionManagementService;
 import java.io.File;
 
 /**
- * Created by dremon on 10/03/16.
+ * Created by 46066294p on 17/03/16.
  */
 public class XMLDBIntro {
     private static String URI = "xmldb:exist://172.31.101.225:8080/exist/xmlrpc";
